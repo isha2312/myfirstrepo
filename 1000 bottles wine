@@ -1,0 +1,53 @@
+ King has 1000 bottles of wine to be consumed in a party after 7 days. Palace guards found one of the bottles was poisoned by a spy. King wants rest 999 bottles in the party 
+ and for that the poisonous bottle has to be identified and discarded. King has given 10 prisoners whom you can test. 
+ 
+ 
+  2 strategies could be followed for this problem.
+............................................................ 
+ 
+ #1. We can be identify the poisionous bottle within 7 days and 99 seconds.
+    Divide the 1000 bottles in group of 10 with 100 each. Number the each bottle from 1 to 1000 and each prisioner from 1 to 10.
+    
+   Take first prisoner and let him have a sip from first bottle.
+   After 1 sec
+   Take same prisoner and let him have a sip from second bottle.
+   Again After 1 sec
+   Take Same prisoner and let him have sip from third bottle.
+   SIMILARLY
+    The prisoner will have sip from 99 bottles in gap of 1-1 sec.
+    
+    And Similarly all the 10 prisoners will follow same procedure at the same time. And record the time for everyone.
+    
+    If After 1 week , first prisoner dies…then 1st bottle is poisoned…
+    If After 1 week and 1 sec , first prisoner dies…then 2nd bottle is poisoned…
+    If After 1 week and 2 sec , first prisoner dies…then 3nd bottle is poisoned…
+    ...
+    If After 1 week and 2 sec, second prisoner dies…then 102nd bottle is poisoned…
+    
+    This will find out the bottle but with some extra seconds after 1 week.
+    *This is also possible with just 1 prisioner but that will take 1 week and 999 seconds to identify the bottle.
+    
+ .......................................................   
+    
+    #2. By converting into binary numbers
+      
+      Number the bottles 1 to 1000 and write the number in binary format.
+      bottle 1 = 0000000001 (10 digit binary)
+      bottle 2 = 0000000010
+      bottle 500 = 0111110100
+      
+      Also take 10 prisoners and number them 1 to 10, now let prisoner 1 take a sip from every bottle that has a 1 in its least significant bit. Let prisoner 10 take a
+      sip from every bottle with a 1 in its most significant bit. etc.
+
+      prisoner = 10 9 8 7 6 5 4 3 2 1
+
+      bottle 755 = 1 0 1 1 1 1 0 0 1 1
+      
+       for eg. if bottle no. 755 would be sipped by 10,8,7,6,5,4,2 and 1. That way if bottle no. 755 was the poisoned one, only those prisoners would die.
+      
+      After one week, line the prisoners up in their bit order and read each living prisoner as a 0 bit and each dead prisoner as a 1 bit. The number that we get
+      is the bottle of wine that was poisoned.
+      
+    .................................
+    
+    
